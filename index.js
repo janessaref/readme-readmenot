@@ -8,9 +8,8 @@ GOAL: create a readme based on user input from the console
 */
 const inquirer = require("inquirer");
 const fs = require("fs");
-const axios = require("axios");
+// const axios = require("axios");
 const generateMarkdown = require("./utils/generateMarkdown");
-console.log(generateMarkdown)
 
 const questions = [{
             type: "input",
@@ -60,7 +59,7 @@ const questions = [{
         },
         {
             type: "confirm",
-            name: "table of contents",
+            name: "tableofcontents",
             message: "Would you like a table of contents?",
         },
     ]
@@ -105,13 +104,18 @@ function writeToFile(fileName, data) {
     });
 }
 
-function init() {
-    inquirer.prompt(questions)
-        .then(function(data) {
-            console.log(data);
-            const fileName = "README.md";
-            writeToFile(fileName, data);
-        })
+async function init() {
+    try {
+        inquirer.prompt(questions)
+            .then(function(data) {
+                // console.log(data);
+                const fileName = "README.md";
+                await writeToFile(fileName, data);
+            });
+    } catch (err) {
+        console.log(err);
+    }
+
 }
 
 init();
