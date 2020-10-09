@@ -1,8 +1,5 @@
 function generateMarkdown(data) {
     return `# ${data.title}
-  ![GitHub license](${url})
-
-  ${data.description}
 
   ## Description
   ${data.description}
@@ -11,7 +8,7 @@ function generateMarkdown(data) {
   ${data.tableofcontents}
   
   ## Installation
-  ${data.installation}
+  \`\`\`${data.installation}\`\`\`
 
   ## Usage
   ${data.usage}
@@ -23,9 +20,16 @@ function generateMarkdown(data) {
   ${data.contributing}
 
   ## Tests
-  ${data.tests}
+  \`\`\`${data.tests}\`\`\`
 
-  ##Questions
+  ## Author
+  * Name: ${data.fullname}
+  * GitHub Username: ${data.username}
+  * Email: ${data.email}
+  ![GitHub Picture](https://github.com/${data.username}.png)
+  
+
+  ## Questions
   If you have any questions about the respository, you can reach me at janessarefong@gmail.com. You could also check out my GitHub page at janessaref. 
 `;
 }
