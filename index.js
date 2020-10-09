@@ -11,10 +11,41 @@ const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 const questions = [{
-    type: "input",
-    name: "title",
-    message: "What is the title of your project?",
-}, ];
+        type: "input",
+        name: "title",
+        message: "What is the title of your project?",
+    },
+    {
+        type: "input",
+        name: "project description",
+        message: "Please write a short description of your project"
+    },
+    {
+        type: "input",
+        name: "license",
+        message: "What type of license should your project have?",
+    },
+    {
+        type: "input",
+        name: "installation",
+        message: "What command should be run to install dependencies?",
+    },
+    {
+        type: "input",
+        name: "tests",
+        message: "What command should be run to run tests?",
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "What does the user need to know about using the repository?",
+    },
+    {
+        type: "input",
+        name: "contributors",
+        message: "What does the user need to know about contributing to the repository?",
+    }
+];
 
 function writeToFile(fileName, data) {
     let dataString = generateMarkdown(data);
