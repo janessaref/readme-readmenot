@@ -38,7 +38,7 @@ const questions = [{
         name: "license",
         message: chalk.green("Would you like to include a license?"),
     },
-    {
+    { // list of licenses will only be prompted if the user confirms license to be included
         when: function(data) {
             if (data.license) {
                 return true;
@@ -78,8 +78,10 @@ const questions = [{
     },
 ];
 
+// collects and writes the data
 function writeToFile(fileName, data) {
 
+    // prints badges to the README
     if (data.license === true && data.badge === "MIT") {
         data.badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)";
         data.license = "This project is under the MIT license";
@@ -95,8 +97,9 @@ function writeToFile(fileName, data) {
     } else {
         data.badge = "";
         data.license = "N/A";
-    }
+    };
 
+    // if the user leaves them blank, "N/A" will be displayed instead on respective sections
     if (data.username === "" || data.email === "" || data.title === "" || data.description === "" || data.installation === "" || data.tests === "" || data.usage === "" || data.contributing === "" || data.fullname === "") {
         data.username = "N/A";
         data.email = "N/A";
@@ -108,10 +111,12 @@ function writeToFile(fileName, data) {
         data.contributing = "N/A";
         data.fullname = "N/A";
     };
+
+    // Stores all the collected data in dataString
     let dataString = generateMarkdown(data);
 
+    // writes the file to the folder "output" where the readme is stored
     fs.writeFile('output/' + fileName, dataString, function(err) {
-
         if (err) {
             return console.log(err);
         }
@@ -119,6 +124,7 @@ function writeToFile(fileName, data) {
     });
 }
 
+// prompts questions, then generates readme file and writes it
 function init() {
     inquirer.prompt(questions)
         .then(function(data) {

@@ -1,8 +1,8 @@
-# readme generator
+# README Generator
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
   ## Description
-  lol
+  This project generates README.md files for the user using the command line.
   
   ## Table of Contents
   * [Description](#description)
@@ -16,27 +16,27 @@
   
   ## Installation
   ```
-  y
+  npm install
   ```
 
   ## Usage
-  y
+  This readme generator will overwrite any existing saved readme.md file you have had in the past so it will not add any new information but instead overwrite. 
 
   ## License
   This project is under the MIT license
 
   ## Contributing
-  y
+  As of the moment, I am not looking for any contributions.
 
   ## Tests
   ```
-  y
+  npm run test
   ```
 
   ## Author
-  * Name: y
+  * Name: Janessa Reeanne Fong
   * GitHub Username: janessaref
-  * Email: jgmail.com
+  * Email: janessarefong@gmail.com
   
  ![GitHub Profile Picture](https://github.com/janessaref.png)
   
