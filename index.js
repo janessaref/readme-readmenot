@@ -110,7 +110,7 @@ function writeToFile(fileName, data) {
     };
     let dataString = generateMarkdown(data);
 
-    fs.writeFile(fileName, dataString, function(err) {
+    fs.writeFile('output/' + fileName, dataString, function(err) {
 
         if (err) {
             return console.log(err);
