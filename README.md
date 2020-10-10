@@ -1,33 +1,44 @@
-# readmenot
+# ok
+  [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
   ## Description
-  checkinggggg okay
+  lol
   
   ## Table of Contents
-  true
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Authors](#authors)
+  * [Questions](#questions)
   
   ## Installation
-  ```secret```
+  ```
+  secret
+  ```
 
   ## Usage
   nothing
 
   ## License
-  This project is under the MIT License
+  This project is under the GPL 3.0 license
 
   ## Contributing
-  me
+  it'sme
 
   ## Tests
-  ```lol```
+  ```
+  walk dont run
+  ```
 
   ## Author
-  * Name: Janessa Fong
+  * Name: hello
   * GitHub Username: janessaref
-  * Email: janessarefong@gmail.com
-  ![GitHub Picture](https://github.com/janessaref.png)
+  * Email: gmail.com
   
-
+ ![GitHub Profile Picture](https://github.com/janessaref.png)
+  
   ## Questions
-  If you have any questions about the respository, you can reach me at janessarefong@gmail.com. You could also check out my GitHub page at janessaref. 
-#readmenot
+  If you have any questions or issues about the respository, you can reach me at janessarefong@gmail.com. You could also check out my GitHub page at [janessaref](https://github.com/janessaref). 

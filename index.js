@@ -6,117 +6,125 @@ GOAL: create a readme based on user input from the console
 4. write to a file
 
 */
+
 const inquirer = require("inquirer");
 const fs = require("fs");
-// const axios = require("axios");
 const generateMarkdown = require("./utils/generateMarkdown");
-console.log(generateMarkdown)
+const chalk = require("chalk");
 
+// inquirer prompt questions
 const questions = [{
-            type: "input",
-            name: "username",
-            message: "What is your GitHub username?",
+        type: "input",
+        name: "username",
+        message: chalk.magenta("What is your GitHub username?"),
+    },
+    {
+        type: "input",
+        name: "email",
+        message: chalk.blue("What is your email address?"),
+    },
+    {
+        type: "input",
+        name: "title",
+        message: chalk.yellow("What is the title of your project?"),
+    },
+    {
+        type: "input",
+        name: "description",
+        message: chalk.red("Please write a short description of your project"),
+    },
+    {
+        type: "confirm",
+        name: "license",
+        message: chalk.green("Would you like to include a license?"),
+    },
+    {
+        when: function(data) {
+            if (data.license) {
+                return true;
+            } else {
+                return false;
+            }
         },
-        {
-            type: "input",
-            name: "email",
-            message: "What is your email address?",
-        },
-        {
-            type: "input",
-            name: "title",
-            message: "What is the title of your project?",
-        },
-        {
-            type: "input",
-            name: "description",
-            message: "Please write a short description of your project"
-        },
-        {
-            type: "list",
-            name: "license",
-            message: "What type of license should your project have? Press the Enter key to select",
-            choices: ["MIT", "Apache 2.0", "GPL 3.0", "BSD 3", "None"],
-        },
-        {
-            type: "input",
-            name: "installation",
-            message: "What command should be run to install dependencies?",
-        },
-        {
-            type: "input",
-            name: "tests",
-            message: "What command should be run to run tests?",
-        },
-        {
-            type: "input",
-            name: "usage",
-            message: "What does the user need to know about using the repository?",
-        },
-        {
-            type: "input",
-            name: "contributing",
-            message: "What does the user need to know about contributing to the repository?",
-        },
-        {
-            type: "input",
-            name: "fullname",
-            message: "What is the author's full name?",
-        },
-        {
-            type: "confirm",
-            name: "tableofcontents",
-            message: "Would you like a table of contents?",
-        },
-    ]
-    // .then(function({ username }) {
-    //     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
-
-//     axios.get(queryUrl).then(function(response) {
-//         const userName = response.data.map(function(repo) {
-//             return repo.owner.avatar_url;
-//         });
-
-// const repoNames = [];
-// for (var i = 0; i < res.data.length; i++) {
-//   repoNames.push(res.data[i].name);
-// }
-
-//   const repoNamesStr = repoNames.join("\n");
-
-//   fs.writeFile("repos.txt", repoNamesStr, function(err) {
-//     if (err) {
-//       throw err;
-//     }
-
-//     console.log(`Saved ${repoNames.length} repos`);
-//   });
-//     });
-// });
+        type: "list",
+        name: "badge",
+        message: chalk.magenta("What type of license should your project have? Press the Enter key to select"),
+        choices: ["MIT", "Apache 2.0", "GPL 3.0", "BSD 3"],
+    },
+    {
+        type: "input",
+        name: "installation",
+        message: chalk.blue("What command should be run to install dependencies?"),
+    },
+    {
+        type: "input",
+        name: "tests",
+        message: chalk.yellow("What command should be run to run tests?"),
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: chalk.red("What does the user need to know about using the repository?"),
+    },
+    {
+        type: "input",
+        name: "contributing",
+        message: chalk.green("What does the user need to know about contributing to the repository?"),
+    },
+    {
+        type: "input",
+        name: "fullname",
+        message: chalk.magenta("What is the author's full name?"),
+    },
+];
 
 function writeToFile(fileName, data) {
+
+    if (data.license === true && data.badge === "MIT") {
+        data.badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)";
+        data.license = "This project is under the MIT license";
+    } else if (data.license === true && data.badge === "Apache 2.0") {
+        data.badge = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+        data.license = "This project is under the Apache 2.0 license";
+    } else if (data.license === true && data.badge === "GPL 3.0") {
+        data.badge = "[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)";
+        data.license = "This project is under the GPL 3.0 license";
+    } else if (data.license === true && data.badge === "BSD 3") {
+        data.badge = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+        data.license = "This project is under the BSD 3 license";
+    } else {
+        data.badge = "";
+        data.license = "N/A";
+    }
+
+    if (data.username === "" || data.email === "" || data.title === "" || data.description === "" || data.installation === "" || data.tests === "" || data.usage === "" || data.contributing === "" || data.fullname === "") {
+        data.username = "N/A";
+        data.email = "N/A";
+        data.title = "N/A";
+        data.description = "N/A";
+        data.installation = "N/A";
+        data.tests = "N/A";
+        data.usage = "N/A";
+        data.contributing = "N/A";
+        data.fullname = "N/A";
+    };
     let dataString = generateMarkdown(data);
-    dataString += `#${data.title}`;
-    console.log(dataString);
 
     fs.writeFile(fileName, dataString, function(err) {
 
         if (err) {
             return console.log(err);
         }
-
-        console.log("Success!");
-
+        console.log(chalk.green("Sucess! Your README has been generated!"));
     });
 }
 
 function init() {
     inquirer.prompt(questions)
         .then(function(data) {
-            console.log(data);
             const fileName = "README.md";
             writeToFile(fileName, data);
-        })
-}
+        });
+};
 
 init();

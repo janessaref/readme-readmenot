@@ -1,37 +1,48 @@
 function generateMarkdown(data) {
     return `# ${data.title}
+  ${data.badge}
 
   ## Description
   ${data.description}
   
   ## Table of Contents
-  ${data.tableofcontents}
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Authors](#authors)
+  * [Questions](#questions)
   
   ## Installation
-  \`\`\`${data.installation}\`\`\`
+  \`\`\`
+  ${data.installation}
+  \`\`\`
 
   ## Usage
   ${data.usage}
 
   ## License
-  This project is under the ${data.license} License
+  ${data.license}
 
   ## Contributing
   ${data.contributing}
 
   ## Tests
-  \`\`\`${data.tests}\`\`\`
+  \`\`\`
+  ${data.tests}
+  \`\`\`
 
   ## Author
   * Name: ${data.fullname}
   * GitHub Username: ${data.username}
   * Email: ${data.email}
-  ![GitHub Picture](https://github.com/${data.username}.png)
+  \n ![GitHub Profile Picture](https://github.com/${data.username}.png)
   
-
   ## Questions
-  If you have any questions about the respository, you can reach me at janessarefong@gmail.com. You could also check out my GitHub page at janessaref. 
+  If you have any questions or issues about the respository, you can reach me at janessarefong@gmail.com. You could also check out my GitHub page at [janessaref](https://github.com/janessaref). 
 `;
-}
+};
 
 module.exports = generateMarkdown;
