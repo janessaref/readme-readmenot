@@ -1,6 +1,20 @@
 # README Generator (README, README NOT)
 
-In this project, I’ve created a README generator that is going to write a README.md file for the user using node. With the command line open, the user will run a command "node index.js" or in this case, whatever the file was named and then will be asked a series of questions. The user will just put in their inputs and once that is done, the README.md file will be generated and will include all of the user's inputs. One thing the user needs to note is that if the user plans to run "node index.js" again, any previously saved content in the README.md file will be overwritten. The user has to be sure about the changes that will be made. If the user decides to leave any blank answers in the prompted questions, it will print "N/A" on the file on its respective sections. To know more on how to use this, a demo link is available below at the [Usage](#usage) section.
+In this project, I’ve created a README generator that is going to write a README.md file for the user using node. This is meant to be an easy way to put together a README.md file for new projects wherein the user can spend more time on the project and less time on creating a good README. With the command line open, the user will run a command "node index.js" or in this case, whatever the file was named and then will be asked a series of questions. The user will just put in their inputs and once that is done, the README.md file will be generated and will include all of the user's inputs. One thing the user needs to note is that if the user plans to run "node index.js" again, any previously saved content in the README.md file will be overwritten. The user has to be sure about the changes that will be made. If the user decides to leave any blank answers in the prompted questions, it will print "N/A" on the file on its respective sections. To know more on how to use this, a demo link is available below at the [Usage](#usage) section.
+
+The following sections are included in this README generator:
+
+  * Title 
+  * Description
+  * Table of Contents
+  * Installation
+  * Usage
+  * License
+  * Contributing
+  * Tests
+  * Author (name, GitHub username, email and avatar)
+  * Questions
+  * Badge specific to the repository
 
 In this project, this uses inquirer which allows me to create the questions to be prompted to the user. For the user's information as well, the colorful questions that were prompted, I used the command "npm install chalk" for that. To see the expected output of this README generator, you can check out the folder "output" that contains the sample. You can also find more information below on installation, usage, demo/videos, snippets and images.
 
