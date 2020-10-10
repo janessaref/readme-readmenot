@@ -120,7 +120,7 @@ function writeToFile(fileName, data) {
         if (err) {
             return console.log(err);
         }
-        console.log(chalk.green("Sucess! Your README has been generated!"));
+        console.log(chalk.green("Success! Your README has been generated!"));
     });
 }
 
